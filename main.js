@@ -6,7 +6,7 @@ const eraseBtn = document.querySelector(".erase");
 const filenameInput = document.getElementById("filenameInput");
 
 let size = sizeElement.value;
-let draw = true; // Initial mode is drawing
+let draw = false; 
 let eraseMode = false;
 
 function addGrid() {
@@ -14,6 +14,13 @@ function addGrid() {
   for (let i = 0; i < size * size; i++) {
     const div = document.createElement("div");
     div.classList.add("box");
+
+    if (i % 2 === 0) {
+      div.style.backgroundColor = "#fff"; 
+    } else {
+      div.style.backgroundColor = "#ddd"; 
+    }
+
     div.addEventListener("mouseover", () => onMouseOver(div));
     div.addEventListener("mousedown", () => onMouseDown(div));
 
@@ -26,9 +33,9 @@ addGrid();
 function onMouseOver(div) {
   if (draw) {
     if (eraseMode) {
-      div.style.backgroundColor = ""; // Erase the grid
+      div.style.backgroundColor = ""; 
     } else {
-      div.style.backgroundColor = color.value; // Draw with the selected color
+      div.style.backgroundColor = color.value;
     }
   }
 }
@@ -36,9 +43,9 @@ function onMouseOver(div) {
 function onMouseDown(div) {
   if (draw) {
     if (eraseMode) {
-      div.style.backgroundColor = ""; // Erase the grid
+      div.style.backgroundColor = ""; 
     } else {
-      div.style.backgroundColor = color.value; // Draw with the selected color
+      div.style.backgroundColor = color.value; 
     }
   }
 }
@@ -58,18 +65,18 @@ function reset() {
 
 resetBtn.addEventListener("click", reset);
 
-sizeElement.addEventListener("keyup", function () {
+sizeElement.addEventListener("input", function () {
   size = sizeElement.value;
   reset();
 });
-
 function eraseGrids() {
   eraseMode = !eraseMode;
   if (eraseMode) {
     const cursorIcon = 'url("data:image/x-icon;base64,AAACAAEAICACAAAAAAAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA66TnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAC4AAABuAAAA4AAAAdwAAAO4AAAHcAAABuAAAAXAAAADgAAAAAAAAA///////////////////////////////////////////////////////////////////////////////////////////////////////////+D////A////gP///wD///4A///8Af//+AP///AH///wD///8B////A////wf///8="), auto';
     eraseBtn.style.cursor = cursorIcon;
+
   } else {
-    eraseBtn.style.cursor = ""; // Reset cursor to default
+    eraseBtn.style.cursor = ""; 
   }
 }
 
