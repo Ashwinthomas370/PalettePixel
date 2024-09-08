@@ -6,5 +6,5 @@ Whether you're a pixel pro or just getting started, PalettePixel makes it super 
 
 
 ## 🌐 Live Demo
-Check out PalettePixel in action [**here**](#https://palettepixel.netlify.app/). 🚀  
+Check out PalettePixel in action [**here**](https://palettepixel.netlify.app/). 🚀  
 
